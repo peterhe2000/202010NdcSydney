@@ -39,6 +39,7 @@ namespace CaWorkshop.Application.TodoItems.Commands.UpdateTodoItem
 
             Guard.Against.NotFound(entity, nameof(entity), request.Id);
 
+            // should not use automapper reversemap for command, better to see what changes for write operation. 
             entity.ListId = request.ListId;
             entity.Title = request.Title;
             entity.Done = request.Done;
