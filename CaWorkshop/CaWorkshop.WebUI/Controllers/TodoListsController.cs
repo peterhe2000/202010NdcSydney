@@ -22,6 +22,7 @@ namespace CaWorkshop.WebUI.Controllers
             CreateTodoListCommand command)
         {
             return await Mediator.Send(command);
+            // return await Mediator.Send(new GetTodoListsQuery());
         }
 
         // PUT: api/TodoLists/5
