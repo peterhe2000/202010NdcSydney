@@ -88,7 +88,8 @@ namespace CaWorkshop.WebUI
 
             app.UseOpenApi(); //https://localhost:5001/swagger/v1/swagger.json 
             app.UseSwaggerUi3(); // use https://localhost:5001/swagger/v1/swagger.json in https://localhost:5001/swagger/index.html
-            
+            // app.UseReDoc(); // use for public api.
+
             app.UseRouting();
 
             app.UseSpa(spa =>
