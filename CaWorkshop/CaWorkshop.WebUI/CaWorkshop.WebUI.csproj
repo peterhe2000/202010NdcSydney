@@ -33,8 +33,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CaWorkshop.Application\CaWorkshop.Application.csproj" />
     <ProjectReference Include="..\CaWorkshop.Infrastructure\CaWorkshop.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Shared\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

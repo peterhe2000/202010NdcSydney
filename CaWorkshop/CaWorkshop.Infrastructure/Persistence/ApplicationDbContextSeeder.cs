@@ -1,7 +1,7 @@
 ﻿using CaWorkshop.WebUI.Models;
 using System.Linq;
 
-namespace CaWorkshop.WebUI.Data
+namespace CaWorkshop.Infrastructure.Persistence
 {
     public static class ApplicationDbContextSeeder
     {
