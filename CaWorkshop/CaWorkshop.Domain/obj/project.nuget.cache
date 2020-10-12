@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6ftKNZaetqK9MYa9H/I1Ln/Dls4ffxgMtvycv+mLPSmwX/n+4iiic914WGueqjHccvSeCEASDk3UtXX1q+P25Q==",
+  "success": true,
+  "projectFilePath": "C:\\projects\\202010NDCSydney\\CaWorkshop\\CaWorkshop.Domain\\CaWorkshop.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\phe\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
