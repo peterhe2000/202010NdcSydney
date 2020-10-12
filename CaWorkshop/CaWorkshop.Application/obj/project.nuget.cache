@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+qV9HDbXlL6kCSMABQ/+73eK0mzw2aZJby1WHWlatl8IdBc5vcLzjxHO1vbrDTWtLwjS3E0UoC35Enc5xURI6g==",
+  "dgSpecHash": "+5T5XfgIWFZS3d1wwVcJ+TQzVvmtnI5GPVdhwpiXtDihQMEYYP0afJLpM17MffcohguseGvnODLQQj/32A4fZw==",
   "success": true,
   "projectFilePath": "C:\\projects\\202010NDCSydney\\CaWorkshop\\CaWorkshop.Application\\CaWorkshop.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\phe\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\phe\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\phe\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\phe\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\phe\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.8\\microsoft.entityframeworkcore.3.1.8.nupkg.sha512",

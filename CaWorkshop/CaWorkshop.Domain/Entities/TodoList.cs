@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CaWorkshop.Entities.Models
+namespace CaWorkshop.Domain.Entities
 {
     public class TodoList
     {

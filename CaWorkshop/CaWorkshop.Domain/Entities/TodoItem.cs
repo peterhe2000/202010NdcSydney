@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CaWorkshop.Entities.Models
+namespace CaWorkshop.Domain.Entities
 {
     public class TodoItem
     {

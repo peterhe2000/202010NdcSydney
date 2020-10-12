@@ -1,4 +1,4 @@
-﻿using CaWorkshop.WebUI.Models;
+﻿using CaWorkshop.Domain.Entities;
 using System.Linq;
 
 namespace CaWorkshop.Infrastructure.Persistence
