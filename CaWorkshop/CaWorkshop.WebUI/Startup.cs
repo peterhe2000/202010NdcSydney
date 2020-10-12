@@ -40,6 +40,10 @@ namespace CaWorkshop.WebUI
                 .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddOpenApiDocument(configure =>
+            {
+                configure.Title = "CaWorkshop API";
+            });
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -81,6 +85,11 @@ namespace CaWorkshop.WebUI
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            app.UseOpenApi(); //https://localhost:5001/swagger/v1/swagger.json 
+            app.UseSwaggerUi3(); // use https://localhost:5001/swagger/v1/swagger.json in https://localhost:5001/swagger/index.html
+            
+            app.UseRouting();
 
             app.UseSpa(spa =>
             {
