@@ -67,6 +67,11 @@ namespace CaWorkshop.WebUI
             app.UseOpenApi();
             app.UseSwaggerUi3();
             // app.UseReDoc(); -- Useful public documentation (no try it now feature)
+            // app.UseReDoc(settings => settings.Path = "/docs");
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.Map("/api", context => Task.Run(() => context.Response.Redirect("/docs")));
+            //});
 
             app.UseRouting();
 
