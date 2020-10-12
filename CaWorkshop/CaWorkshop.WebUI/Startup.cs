@@ -1,6 +1,8 @@
+using CaWorkshop.Application.Common.Interfaces;
 using CaWorkshop.Infrastructure;
 using CaWorkshop.Infrastructure.Identity;
 using CaWorkshop.Infrastructure.Persistence;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,7 +28,9 @@ namespace CaWorkshop.WebUI
             services.AddInfrastructureServices(Configuration);
             services.AddApplicationServices();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddFluentValidation(fv => fv
+                    .RegisterValidatorsFromAssemblyContaining<IApplicationDbContext>()); // Add FluentValidation into pipeline
 
             services.AddRazorPages();
 
@@ -39,7 +43,7 @@ namespace CaWorkshop.WebUI
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
-            });
+            });            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
