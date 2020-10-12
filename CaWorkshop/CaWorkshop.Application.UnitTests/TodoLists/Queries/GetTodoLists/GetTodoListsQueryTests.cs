@@ -8,15 +8,16 @@ using Xunit;
 
 namespace CaWorkshop.Application.UnitTests.TodoLists.Queries.GetTodoLists
 {
-    public class GetTodoListsQueryTests
+    [Collection(nameof(QueryCollection))]
+    public class GetTodoListsQueryTests // : IClassFixture<TestFixture> //Share same data in class, run all tests, then once dispose shared same setup.
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
 
-        public GetTodoListsQueryTests()
+        public GetTodoListsQueryTests(TestFixture fixture)
         {
-            _context = DbContextFactory.Create();
-            _mapper = MapperFactory.Create();
+            _context = fixture.Context;
+            _mapper = fixture.Mapper;
         }
 
         [Fact]
