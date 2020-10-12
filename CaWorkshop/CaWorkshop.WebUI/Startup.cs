@@ -28,9 +28,7 @@ namespace CaWorkshop.WebUI
             services.AddInfrastructureServices(Configuration);
             services.AddApplicationServices();
 
-            services.AddControllersWithViews()
-                .AddFluentValidation(fv => fv
-                    .RegisterValidatorsFromAssemblyContaining<IApplicationDbContext>()); // Add FluentValidation into pipeline
+            services.AddControllersWithViews();
 
             services.AddRazorPages();
 
