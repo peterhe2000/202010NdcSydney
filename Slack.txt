@@ -1,0 +1,140 @@
+This is the very beginning of the ﻿practical-clean-architecture-with-dot-net-core-3-1 channel
+@Jakob Bradford (NDC Crew) created this channel on October 9th.
+2-Day Workshop Edit description
+ Add people
+ Connect an app
+ Share channel
+
+Jakob Bradford (NDC Crew)  9:33 PM
+joined #practical-clean-architecture-with-dot-net-core-3-1.
+
+Jakob Bradford (NDC Crew)  9:33 PM
+set the channel description: 2-Day Workshop
+
+Rian Finnegan  9:33 PM
+was added to #practical-clean-architecture-with-dot-net-core-3-1 by Jakob Bradford (NDC Crew), along with 76 others.
+Pinned by Jakob Bradford (NDC Crew)
+
+Jakob Bradford (NDC Crew)  9:34 PM
+set the channel topic: Meeting link: https://ndcconferences.webex.com/ndcconferences/j.php?MTID=m4edeff1e9053659cf3944622761905f0
+Password: NDCSYD
+
+Jason Taylor  9:27 AM
+Workbook - https://clean-architecture.jasontaylor.dev/
+clean-architecture.jasontaylor.devclean-architecture.jasontaylor.dev
+Overview
+This workshop outlines the simplest approach to building enterprise applications using Clean Architecture and .NET Core.
+
+Jason Taylor  9:32 AM
+Repo: https://github.com/jasontaylordev/ndcsydney2020
+
+Jason Taylor  10:10 AM
+dotnet tool install --global dotnet-ef
+
+Jason Taylor  11:10 AM
+https://deviq.com/repository-pattern/ & https://deviq.com/specification-pattern/
+deviq.comdeviq.com
+Repository Pattern
+The Repository Pattern has gained quite a bit of popularity since it was first introduced as a part of Domain-Driven Design in 2004. Essentially, it [...]
+deviq.comdeviq.com
+Specification Pattern
+One Domain-Driven-Design solution to the problem of where to place querying, sorting, and paging logic is to use a Specification. The Specification design [...]
+
+Jason Taylor  11:16 AM
+https://docs.microsoft.com/en-us/ef/core/modeling/data-seeding
+docs.microsoft.comdocs.microsoft.com
+Data Seeding - EF Core
+Using data seeding to populate a database with an initial set of data using Entity Framework Core
+
+Adam Smith-Platts (CSIRO)  12:23 PM
+@Jason Taylor /api and /docs with ReDoc:
+app.UseReDoc(settings => settings.Path = "/docs");
+...
+app.UseEndpoints(endpoints =>
+{
+    endpoints.Map("/api", context => Task.Run(() => context.Response.Redirect("/docs")));
+});
+(edited)
+:+1:
+1
+
+
+Adam Smith-Platts (CSIRO)  3:45 PM
+https://devblogs.microsoft.com/aspnet/asp-net-core-updates-in-net-5-release-candidate-1/#open-api-specification-on-by-default
+All .csproj files that are created for Web API projects will come with the NuGet package reference.
+ASP.NET BlogASP.NET Blog
+ASP.NET Core updates in .NET 5 Release Candidate 1 | ASP.NET Blog
+.NET 5 Release Candidate 1 (RC1) is now available and is ready for evaluation. .NET 5 RC1 is a “go live” release; you are supported using it in production. Here’s what’s new in this release: Blazor WebAssembly performance improvements Blazor component virtualization Blazor WebAssembly prerendering Browser compatibility analyzer for Blazor WebAssembly Blazor JavaScript isolation and object references Blazor file input support Custom validation class attributes in Blazor Blazor support for ontoggle event IAsyncDisposable support for Blazor components Model binding DateTime as UTC Control Startup class activation Open API Specification (Swagger) on-by-default in ASP.NET Core API projects Better… Show more
+Sep 15th
+
+Adam Smith-Platts (CSIRO)  4:13 PM
+https://clean-architecture.jasontaylor.dev/beyond-the-basics/simplifying-object-object-mappings-with-automapper#adding-default-configuration-for-convention-based-mappings
+May need to add this to the end. before the ApplyMappingsFromAssembly solution:
+(new TodoListDto() as IMapFrom<TodoList>)?.Mapping(this);
+clean-architecture.jasontaylor.devclean-architecture.jasontaylor.dev
+Simplifying Object-Object Mappings with AutoMapper
+Leverage AutoMapper to reduce and sometimes eliminate the effort associated with object-object mappings.
+
+Jason Taylor  4:16 PM
+Keyless Entities - https://docs.microsoft.com/en-us/ef/core/modeling/keyless-entity-types?tabs=data-annotations
+docs.microsoft.comdocs.microsoft.com
+Keyless Entity Types - EF Core
+How to configure keyless entity types using Entity Framework Core
+
+Jason Taylor  4:27 PM
+Problem Details RFC - https://tools.ietf.org/html/rfc7807
+
+Jason Taylor  5:07 PM
+Vertical Slice Architecture - https://www.youtube.com/watch?v=T6nglsEDaqA
+YouTubeYouTube | DevTernity
+🚀 DevTernity 2019: Jimmy Bogard – Vertical Slice Architecture 
+
+
+Adam Smith-Platts (CSIRO)  9:49 AM
+https://github.com/dotnet/efcore/issues/18457
+GitHubGitHub
+Remove the in-memory provider · Issue #18457 · dotnet/efcore
+Note: the decision to do or not do this has not been made. Feedback is appreciated. While the in-memory provider is marketed as &quot;for testing&quot; I think that is somewhat misleading. Its actu...
+
+Hans Loquet  10:33 AM
+for me it’s more like nighttime coffee to stay awake :smile:
+
+Charlotte Lyng (NDC Crew)  1:18 PM
+@here here’s the feedback form for later
+1:18
+https://forms.gle/PHMzGdM6QR7KU4MX8
+Google DocsGoogle Docs
+NDC Sydney 2020 Workshop Evaluation
+Practical Clean Architecture with .NET Core 3.1 - Jason Taylor (27 kB)
+https://lh5.googleusercontent.com/Uje53SJb9TKWO2qMIbd0iL5ypM80IOuB-hcjfMdytmFXbTzHnNzPEiXiomL1rBB27brxtAA
+
+Jason Taylor  1:58 PM
+Serilog Enricher Correlation Id -https://github.com/ekmsystems/serilog-enrichers-correlation-id
+GitHubGitHub
+ekmsystems/serilog-enrichers-correlation-id
+Enrich logs with a unique ID so you can track logs for specific requests. - ekmsystems/serilog-enrichers-correlation-id
+
+Jason Taylor  2:11 PM
+"Microsoft.EntityFrameworkCore.Database.Command": "Information"
+
+Hans Loquet  5:05 PM
+Thx again Jason, until the next time …
+probably in another timezone :rolling_on_the_floor_laughing:
+:heart:
+1
+
+
+1 reply
+Today at 5:48 PMView thread
+
+Nagarjuna Addanki  5:20 PM
+Thanks Jason. It was wonderful 2 days workshop. Will attend the integration testing workshop later in the week.
+:heart:
+1
+
+
+1 reply
+Today at 5:48 PMView thread
+
+Peter He  8:19 PM
+Thanks. Jason. Learned a lot from you. I will have to watch ur clean testing in youtube. Enjoy rest of NDC.
