@@ -3,7 +3,9 @@ using CaWorkshop.Application.Common.Interfaces;
 using CaWorkshop.Infrastructure;
 using CaWorkshop.WebUI.Filters;
 using CaWorkshop.WebUI.Services;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +33,7 @@ namespace CaWorkshop.WebUI
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddHttpContextAccessor(); // Asp.net identity 
 
+            services.AddHealthChecks();
             services.AddControllersWithViews(options =>
                 options.Filters.Add(new ApiExceptionFilterAttribute()));
 
@@ -62,6 +65,9 @@ namespace CaWorkshop.WebUI
                 configure.OperationProcessors.Add(
                     new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
+
+            services.AddHealthChecksUI()
+                .AddInMemoryStorage();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,14 +94,29 @@ namespace CaWorkshop.WebUI
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
+            //app.UseSwaggerUi3(settings =>
+            //{
+            //    settings.Path = "/api";
+            //    settings.DocumentPath = "/api/specification.json";
+            //});
             // app.UseReDoc(); -- Useful public documentation (no try it now feature)
             // app.UseReDoc(settings => settings.Path = "/docs");
             //app.UseEndpoints(endpoints =>
             //{
             //    endpoints.Map("/api", context => Task.Run(() => context.Response.Redirect("/docs")));
             //});
-
+ 
             app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
+                endpoints.MapHealthChecksUI();
+            });
 
             app.UseAuthentication();
             app.UseIdentityServer();
