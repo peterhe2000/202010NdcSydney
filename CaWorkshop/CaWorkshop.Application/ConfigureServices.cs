@@ -24,6 +24,9 @@ namespace CaWorkshop.Infrastructure
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
+            services.AddTransient(typeof(IPipelineBehavior<,>),
+                typeof(UnhandledExceptionBehaviour<,>));
+
             return services;
         }
     }
