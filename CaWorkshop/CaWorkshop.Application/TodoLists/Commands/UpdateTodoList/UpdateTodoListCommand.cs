@@ -1,6 +1,7 @@
 ﻿using CaWorkshop.Application.Common.Exceptions;
 using CaWorkshop.Application.Common.GuardClauses;
 using CaWorkshop.Application.Common.Interfaces;
+using CaWorkshop.Application.Common.Security;
 using CaWorkshop.Domain.Entities;
 using MediatR;
 using System.Threading;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace CaWorkshop.Application.TodoLists.Commands.UpdateTodoList
 {
+    [Authorise]
     public class UpdateTodoListCommand : IRequest
     {
         public int Id { get; set; }

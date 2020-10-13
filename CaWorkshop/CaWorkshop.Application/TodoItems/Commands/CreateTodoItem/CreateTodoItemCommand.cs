@@ -3,9 +3,11 @@ using CaWorkshop.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using CaWorkshop.Application.Common.Security;
 
 namespace CaWorkshop.Application.TodoItems.Commands.CreateTodoItem
 {
+    [Authorise]
     public class CreateTodoItemCommand : IRequest<long>
     {
         public int ListId { get; set; }

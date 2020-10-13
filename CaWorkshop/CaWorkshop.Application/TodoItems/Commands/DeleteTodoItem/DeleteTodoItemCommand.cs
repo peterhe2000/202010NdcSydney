@@ -3,9 +3,11 @@ using CaWorkshop.Application.Common.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using CaWorkshop.Application.Common.Security;
 
 namespace CaWorkshop.Application.TodoItems.Commands.DeleteTodoItem
 {
+    [Authorise]
     public class DeleteTodoItemCommand : IRequest
     {
         public long Id { get; set; }

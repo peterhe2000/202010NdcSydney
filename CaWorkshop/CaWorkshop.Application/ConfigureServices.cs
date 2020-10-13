@@ -16,6 +16,10 @@ namespace CaWorkshop.Infrastructure
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddTransient(typeof(IPipelineBehavior<,>),
+                typeof(AuthorizationBehaviour<,>));
+
+
+            services.AddTransient(typeof(IPipelineBehavior<,>),
                 typeof(ValidationBehavior<,>));
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

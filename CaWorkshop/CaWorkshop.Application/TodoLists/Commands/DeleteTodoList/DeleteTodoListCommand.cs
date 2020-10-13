@@ -1,6 +1,7 @@
 ﻿using CaWorkshop.Application.Common.Exceptions;
 using CaWorkshop.Application.Common.GuardClauses;
 using CaWorkshop.Application.Common.Interfaces;
+using CaWorkshop.Application.Common.Security;
 using CaWorkshop.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CaWorkshop.Application.TodoLists.Commands.DeleteTodoList
 {
+    [Authorise]
     public class DeleteTodoListCommand : IRequest
     {
         public int Id { get; set; }

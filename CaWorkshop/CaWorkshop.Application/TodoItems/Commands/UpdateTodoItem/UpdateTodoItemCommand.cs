@@ -4,9 +4,11 @@ using CaWorkshop.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using CaWorkshop.Application.Common.Security;
 
 namespace CaWorkshop.Application.TodoItems.Commands.UpdateTodoItem
 {
+    [Authorise]
     public partial class UpdateTodoItemCommand : IRequest
     {
         public long Id { get; set; }
