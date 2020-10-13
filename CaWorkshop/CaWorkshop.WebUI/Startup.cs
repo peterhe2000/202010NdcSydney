@@ -37,21 +37,16 @@ namespace CaWorkshop.WebUI
                 .AddInMemoryStorage();
 
               services.AddHealthChecks()
-                .AddDbContextCheck<ApplicationDbContext>()
-                .AddSmtpHealthCheck(options =>
-                {
-                    options.Host = "localhost";
-                    options.Port = 25;
-                });
+                .AddDbContextCheck<ApplicationDbContext>();
+                // .AddSmtpHealthCheck(options =>
+                // {
+                //     options.Host = "localhost";
+                //     options.Port = 25;
+                // });
             services.AddControllersWithViews(options =>
                 options.Filters.Add(new ApiExceptionFilterAttribute()));
 
             services.AddRazorPages();
-
-            services.AddOpenApiDocument(configure =>
-            {
-                configure.Title = "CaWorkshop API";
-            });
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
