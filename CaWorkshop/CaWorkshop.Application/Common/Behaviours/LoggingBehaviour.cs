@@ -13,7 +13,8 @@ namespace CaWorkshop.Application.Common.Behaviours
         private readonly ICurrentUserService _currentUserService;
         private readonly IIdentityService _identityService;
 
-        public LoggingBehaviour(ILogger<TRequest> logger,
+        public LoggingBehaviour(
+            ILogger<TRequest> logger,
             ICurrentUserService currentUserService,
             IIdentityService identityService)
         {

@@ -1,6 +1,7 @@
 using System.Linq;
 using CaWorkshop.Application.Common.Interfaces;
 using CaWorkshop.Infrastructure;
+using CaWorkshop.Infrastructure.Persistence;
 using CaWorkshop.WebUI.Filters;
 using CaWorkshop.WebUI.Services;
 using HealthChecks.UI.Client;
@@ -32,8 +33,16 @@ namespace CaWorkshop.WebUI
 
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddHttpContextAccessor(); // Asp.net identity 
+  services.AddHealthChecksUI()
+                .AddInMemoryStorage();
 
-            services.AddHealthChecks();
+              services.AddHealthChecks()
+                .AddDbContextCheck<ApplicationDbContext>()
+                .AddSmtpHealthCheck(options =>
+                {
+                    options.Host = "localhost";
+                    options.Port = 25;
+                });
             services.AddControllersWithViews(options =>
                 options.Filters.Add(new ApiExceptionFilterAttribute()));
 
@@ -66,9 +75,7 @@ namespace CaWorkshop.WebUI
                     new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
 
-            services.AddHealthChecksUI()
-                .AddInMemoryStorage();
-        }
+                  }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -92,31 +99,21 @@ namespace CaWorkshop.WebUI
                 app.UseSpaStaticFiles();
             }
 
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
-            //app.UseSwaggerUi3(settings =>
-            //{
-            //    settings.Path = "/api";
-            //    settings.DocumentPath = "/api/specification.json";
-            //});
+            //app.UseOpenApi();
+            //app.UseSwaggerUi3();
+            app.UseSwaggerUi3(settings =>
+            {
+                settings.Path = "/api";
+                settings.DocumentPath = "/api/specification.json";
+            });
             // app.UseReDoc(); -- Useful public documentation (no try it now feature)
             // app.UseReDoc(settings => settings.Path = "/docs");
             //app.UseEndpoints(endpoints =>
             //{
             //    endpoints.Map("/api", context => Task.Run(() => context.Response.Redirect("/docs")));
             //});
- 
-            app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapHealthChecks("/health", new HealthCheckOptions
-                {
-                    Predicate = _ => true,
-                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-                });
-                endpoints.MapHealthChecksUI();
-            });
+            app.UseRouting();          
 
             app.UseAuthentication();
             app.UseIdentityServer();
@@ -127,6 +124,12 @@ namespace CaWorkshop.WebUI
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions
+                {
+                    //Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
+                endpoints.MapHealthChecksUI();
             });
 
             app.UseSpa(spa =>
